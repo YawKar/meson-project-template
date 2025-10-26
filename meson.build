@@ -13,3 +13,4 @@ project(
 
 subdir('libs')
 subdir('bins')
+subdir('tests')
