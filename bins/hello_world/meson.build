@@ -6,7 +6,6 @@ hello_world = executable(
     greeter_lib,
   ],
   include_directories: [
-    calc_includes,
-    greeter_includes,
+    libs_include,
   ],
 )

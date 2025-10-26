@@ -1,5 +1,5 @@
-#include <calc.hpp>
-#include <greeter.hpp>
+#include <calc/calc.hpp>
+#include <greeter/greeter.hpp>
 #include <iostream>
 
 int main() {
