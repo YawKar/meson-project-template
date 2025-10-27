@@ -1,14 +1,14 @@
 project(
-  'project_template',
-  'cpp',
-  version : '0.1',
-  meson_version : '>= 1.3.0',
-  default_options : {
-    'warning_level': '3',
-    'cpp_std': 'c++20',
-    'c_std': 'c17',
-    'default_library': 'static',
-  },
+    'project_template',
+    'cpp',
+    version: '0.1',
+    meson_version: '>= 1.3.0',
+    default_options: {
+        'warning_level': '3',
+        'cpp_std': 'c++20',
+        'c_std': 'c17',
+        'default_library': 'static',
+    },
 )
 
 subdir('libs')

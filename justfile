@@ -2,7 +2,8 @@ default:
     @just --list
 
 fmt:
-    @just --fmt --unstable
+    just --fmt --unstable
+    meson format -ri
 
 build := "build"
 debug_build := build / "debug"
