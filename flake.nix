@@ -22,6 +22,7 @@
               doxygen
               ninja
 	      pkg-config
+	      just
             ] ++ (with llvmPkgs; [
               lld
               lldb
