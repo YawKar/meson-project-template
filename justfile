@@ -4,6 +4,7 @@ default:
 fmt:
     just --fmt --unstable
     meson format -ri
+    nixfmt -sv flake.nix
 
 build := "build"
 debug_build := build / "debug"
