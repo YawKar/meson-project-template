@@ -2,8 +2,9 @@
 #include <greeter/greeter.hpp>
 #include <iostream>
 
-int main() {
-  std::cout << greet("random dev") << std::endl;
-  std::cout << "12.5*F == " << fahrenheit_to_celsius(12.5) << "*C" << std::endl;
-  std::cout << "12.5*C == " << celsius_to_fahrenheit(12.5) << "*F" << std::endl;
+auto main() -> int {
+    std::cout << greet("random dev") << '\n';
+    constexpr double temp = 12.5;
+    std::cout << "12.5*F == " << fahrenheit_to_celsius(temp) << "*C\n";
+    std::cout << "12.5*C == " << celsius_to_fahrenheit(temp) << "*F\n";
 }

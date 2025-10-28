@@ -1,0 +1,7 @@
+InheritParentConfig: true
+UseColor: true
+Checks: >
+  -clang-analyzer-deadcode.DeadStores,
+  -cppcoreguidelines-avoid-non-const-global-variables,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -readability-magic-numbers,

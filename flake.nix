@@ -32,11 +32,11 @@
                 lld
                 lldb
                 llvm
+                clang-tools
               ]);
 
             shellHook = ''
-              export CLANGD_FLAGS="-query-driver=$(which clang++)"
-              export PS1="(m-p-t)$PS1"
+              export PS1="(meson-project-template)$PS1"
             '';
           };
         };

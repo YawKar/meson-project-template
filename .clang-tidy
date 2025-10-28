@@ -1,0 +1,13 @@
+UseColor: true
+Checks: >
+  -*,
+
+  cppcoreguidelines-*,
+  -cppcoreguidelines-owning-memory,
+
+  modernize-*,
+  performance-*,
+  bugprone-*,
+  readability-*,
+  clang-analyzer-*,
+  google-explicit-*,
