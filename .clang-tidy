@@ -1,4 +1,5 @@
 UseColor: true
+WarningsAsErrors: '*'
 Checks: >
   -*,
 

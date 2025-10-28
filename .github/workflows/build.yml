@@ -1,0 +1,27 @@
+name: Run basic CI checks
+
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    permissions:
+      id-token: "write"
+      contents: "read"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - uses: DeterminateSystems/flake-checker-action@main
+      - name: Check format
+        run: nix develop -c just ci_check_fmt
+      - name: Check lint
+        run: nix develop -c just ci_check_lint
+      - name: Check tests
+        run: nix develop -c just ci_check_tests
+      - name: Check benchmarks
+        run: nix develop -c just ci_check_benchmarks
