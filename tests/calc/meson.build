@@ -1,9 +1,7 @@
-calc_test_exec = executable(
-    'calc_test',
+calc_tests_lib = library(
+    'calc_tests',
     'test.cpp',
     link_with: [calc_lib],
     include_directories: [libs_include],
-    dependencies: gtest_main_dep,
+    dependencies: gtest_dep,
 )
-
-test('calc test', calc_test_exec)

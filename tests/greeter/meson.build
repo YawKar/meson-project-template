@@ -1,9 +1,7 @@
-greeter_test_exec = executable(
-    'greeter_test',
+greeter_tests_lib = library(
+    'greeter_tests',
     'test.cpp',
     link_with: [greeter_lib],
     include_directories: [libs_include],
-    dependencies: gtest_main_dep,
+    dependencies: gtest_dep,
 )
-
-test('greeter test', greeter_test_exec)

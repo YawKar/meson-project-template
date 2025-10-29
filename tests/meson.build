@@ -4,3 +4,16 @@ gtest_dep = gtest_project.get_variable('gtest_dep')
 
 subdir('calc')
 subdir('greeter')
+
+tests_runner_exec = executable(
+    'tests_runner',
+    'tests_runner.cpp',
+    link_whole: [calc_tests_lib, greeter_tests_lib],
+    dependencies: [gtest_main_dep],
+)
+
+test(
+    'tests runner',
+    tests_runner_exec,
+    args: ['--gtest_output=json:./gtest_report.json'],
+)
