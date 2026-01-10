@@ -10,8 +10,8 @@ benchmark_main_dep = googlebenchmark_project.get_variable(
 subdir('calc')
 subdir('greeter')
 
-benchmarks_runner_exec = executable(
-    'benchmarks_runner',
+benchmarks_exe = executable(
+    'benchmarks_exe',
     'benchmarks_runner.cpp',
     link_whole: [calc_benchmarks_lib, greeter_benchmarks_lib],
     dependencies: [benchmark_main_dep],
@@ -19,7 +19,7 @@ benchmarks_runner_exec = executable(
 
 benchmark(
     'benchmarks',
-    benchmarks_runner_exec,
+    benchmarks_exe,
     args: [
         '--benchmark_counters_tabular=true',
         '--benchmark_color=true',

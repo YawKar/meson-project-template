@@ -2,8 +2,8 @@
 repos:
   - repo: local
     hooks:
-      - id: just pre-commit
-        name: just pre-commit
-        entry: just pre-commit
+      - id: just _git::pre-commit
+        name: just _git::pre-commit
+        entry: just _git::pre-commit
         language: unsupported
         pass_filenames: false
