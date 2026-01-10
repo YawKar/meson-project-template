@@ -1,2 +1,1 @@
-calc_lib = library('calc', 'calc.cpp')
-calc_includes = include_directories('.')
+calc_lib = library('calc_lib', 'calc.cpp')

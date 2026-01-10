@@ -1,2 +1,1 @@
-greeter_lib = library('greeter', 'greeter.cpp')
-greeter_includes = include_directories('.')
+greeter_lib = library('greeter_lib', 'greeter.cpp')
