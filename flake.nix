@@ -2,17 +2,20 @@
   description = "meson-project-template";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
   outputs =
-    inputs@{ nixpkgs, flake-parts, ... }:
+    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
+      systems = [
+        "aarch64-darwin"
+        "x86_64-linux"
+      ];
 
       perSystem =
-        { pkgs, system, ... }:
+        { pkgs, ... }:
         let
           llvmPkgs = pkgs.llvmPackages_21;
         in
@@ -26,7 +29,8 @@
                 ninja
                 pkg-config
                 just
-                nixfmt-rfc-style
+                nixfmt
+                pre-commit
               ]
               ++ (with llvmPkgs; [
                 lld
@@ -36,7 +40,8 @@
               ]);
 
             shellHook = ''
-              export PS1="(meson-project-template)$PS1"
+              pre-commit uninstall && pre-commit install
+              echo "Development shell loaded!"
             '';
           };
         };

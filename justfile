@@ -98,6 +98,9 @@ ci_build: build_asan build_tsan
 [private]
 ci_tests: test_asan test_tsan
 
+[group("Local")]
+pre-commit: fmt lint
+
 # clean everything in build directory
 [group("Nuke!")]
 [parallel]
