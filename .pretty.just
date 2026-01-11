@@ -12,7 +12,7 @@ fmt:
 # run linters: run-clang-tidy
 [group("Pretty")]
 lint:
-    run-clang-tidy -quiet -p $(just _common_variables::build_root)/DEFAULT bins libs tests benchmarks
+    run-clang-tidy -fix -quiet -p $(just _common_variables::build_root)/DEFAULT bins libs tests benchmarks
 
 [group: "Modules"]
 mod _meta ".meta.just"

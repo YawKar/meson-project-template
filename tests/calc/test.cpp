@@ -2,6 +2,6 @@
 
 #include <calc/calc.hpp>
 
-TEST(TemperatureCalcTests, celsius_to_fahrenheit) {
+TEST(TemperatureCalcTests, CelsiusToFahrenheit) {
     EXPECT_EQ(celsius_to_fahrenheit(12.5), 54.5);
 }

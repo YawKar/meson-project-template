@@ -2,10 +2,10 @@
 
 #include <greeter/greeter.hpp>
 
-static void BM_greeter(benchmark::State& state) {
-    for (auto _state : state) {
+static void bm_greeter(benchmark::State& state) {
+    for (const auto& _ : state) {
         benchmark::DoNotOptimize(greet("Michael"));
     }
 }
 
-BENCHMARK(BM_greeter);
+BENCHMARK(bm_greeter);
