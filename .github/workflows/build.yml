@@ -2,9 +2,11 @@ name: Run basic CI checks
 
 on:
   push:
-    branches: main
+    branches:
+      - main
   pull_request:
-    branches: main
+    branches:
+      - main
 
 jobs:
   check:
@@ -18,10 +20,10 @@ jobs:
       - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: DeterminateSystems/flake-checker-action@main
       - name: Check format
-        run: nix develop -c just ci_check_fmt
+        run: nix develop -c just pretty::fmt check
       - name: Check lint
-        run: nix develop -c just ci_check_lint
+        run: nix develop -c just pretty::lint check
       - name: Check tests
-        run: nix develop -c just ci_check_tests
+        run: nix develop -c just tests::run
       - name: Check benchmarks
-        run: nix develop -c just ci_check_benchmarks
+        run: nix develop -c just benchmarks::run
