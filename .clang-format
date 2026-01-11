@@ -1,8 +1,16 @@
 ---
-BasedOnStyle: Google
+Language: Cpp
+BasedOnStyle: LLVM
+ColumnLimit: 100
 IndentWidth: 4
 UseTab: Never
-BinPackArguments: false
-BinPackParameters: false
-AlignAfterOpenBracket: BlockIndent
-...
+PointerAlignment: Left
+ReferenceAlignment: Left
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: Never
+AlwaysBreakTemplateDeclarations: Yes
+BreakBeforeBraces: Attach
+SpaceAfterTemplateKeyword: true
+Standard: c++20

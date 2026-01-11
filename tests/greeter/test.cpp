@@ -7,4 +7,6 @@ TEST(GreeterTests, ActualNames) {
     EXPECT_EQ(greet("John"), "Hello John");
 }
 
-TEST(GreeterTests, EmptyName) { EXPECT_EQ(greet(""), "Hello "); }
+TEST(GreeterTests, EmptyName) {
+    EXPECT_EQ(greet(""), "Hello ");
+}
