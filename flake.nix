@@ -27,27 +27,41 @@
               "fortify3"
             ];
 
-            nativeBuildInputs =
-              with pkgs;
-              [
-                meson
-                doxygen
-                ninja
-                pkg-config
-                just
-                nixfmt
-                pre-commit
-              ]
-              ++ (with llvmPkgs; [
-                lld
-                lldb
-                llvm
-                clang-tools
-              ]);
+            nativeBuildInputs = with pkgs; [
+              # Build system
+              meson
+              ninja
+              pkg-config
+
+              # Toolchain
+              llvmPkgs.clang-tools
+              llvmPkgs.lld
+              llvmPkgs.llvm
+
+              # Performance analysis
+              valgrind
+              hotspot
+              heaptrack
+
+              # Debugging
+              gef
+              llvmPkgs.lldb
+
+              # Automation
+              just
+              pre-commit
+
+              # Formatters & Linters
+              nixfmt
+
+              # Documentation
+              doxygen
+            ];
 
             shellHook = ''
               pre-commit uninstall && pre-commit install
-              echo "Development shell loaded!"
+              echo "🚀 Modern C++ Environment with Meson"
+              just
             '';
           };
         };
