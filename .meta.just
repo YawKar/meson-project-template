@@ -7,8 +7,8 @@ _default: (list_recipes source_file())
 build root meson_target MESON_ARGS:
     @meson_args="{{ if MESON_ARGS != "" { MESON_ARGS } else { "$(just _common_variables::default_meson_args)" } }}" && \
     builddir=$({{ just }} _get_builddir {{ root }} "$meson_args") && \
-    {{ just }} _build $builddir {{ meson_target }} "$meson_args" && \
-    ln --force --relative --symbolic $builddir {{ root / "DEFAULT" }}
+    {{ just }} _build "$builddir" "{{ meson_target }}" "$meson_args" && \
+    ln --force --relative --symbolic "$builddir" {{ root / "DEFAULT" }}
 
 _build builddir meson_target MESON_ARGS: (_ensure_build_exists builddir MESON_ARGS)
     @meson compile -C {{ builddir }} {{ meson_target }}

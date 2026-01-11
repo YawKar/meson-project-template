@@ -14,6 +14,7 @@ fmt mode="format":
 [arg("mode", pattern="fix|check")]
 [group("Pretty")]
 lint mode="fix":
+    @just _meta::build $(just _common_variables::build_root) "" ""
     run-clang-tidy \
       {{ if mode == "fix" { "-fix -format" } else { "" } }} \
       -quiet \
