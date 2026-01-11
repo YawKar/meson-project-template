@@ -21,6 +21,12 @@
         in
         {
           devShells.default = pkgs.mkShell.override { stdenv = llvmPkgs.libcxxStdenv; } {
+            # we will explicitly set D_FORTIFY_SOURCE
+            hardeningDisable = [
+              "fortify"
+              "fortify3"
+            ];
+
             nativeBuildInputs =
               with pkgs;
               [

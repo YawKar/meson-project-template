@@ -1,10 +1,10 @@
 [group("Hello World")]
-build:
-    @just _meta::build $(just _common_variables::build_root) "hello_world_exe" ""
+build MESON_ARGS="":
+    @just _meta::build $(just _common_variables::build_root) "hello_world_exe" "{{ MESON_ARGS }}"
 
 [group("Hello World")]
-run *ARGS:
-    @just _meta::run $(just _common_variables::build_root) "hello_world_exe" "" {{ ARGS }}
+run MESON_ARGS="" *ARGS:
+    @just _meta::run $(just _common_variables::build_root) "hello_world_exe" "{{ MESON_ARGS }}" {{ ARGS }}
 
 [group: "Modules"]
 mod _meta ".meta.just"

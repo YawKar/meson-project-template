@@ -1,10 +1,10 @@
 [group("Benchmarks")]
-build:
-    @just _meta::build $(just _common_variables::build_root) "benchmarks_exe" ""
+build MESON_ARGS="":
+    @just _meta::build $(just _common_variables::build_root) "benchmarks_exe" "{{ MESON_ARGS }}"
 
 [group("Benchmarks")]
-run *ARGS:
-    @just _meta::run $(just _common_variables::build_root) "benchmarks_exe" "" {{ ARGS }}
+run MESON_ARGS="" *ARGS:
+    @just _meta::run $(just _common_variables::build_root) "benchmarks_exe" "{{ MESON_ARGS }}" {{ ARGS }}
 
 [group: "Modules"]
 mod _meta ".meta.just"
